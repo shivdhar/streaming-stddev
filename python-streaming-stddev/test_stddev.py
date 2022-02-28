@@ -11,5 +11,3 @@ def test_welford():
     for num in arr:
         welford.add(num)
     assert welford.stddev == pytest.approx(stdlib_val)
-
-# test_welford()

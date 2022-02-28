@@ -1,15 +1,28 @@
 use std::thread;
 use std::time::Duration;
 
+mod welford;
+use welford::Welford;
+
 fn main() {
     // println!("Hello, world!");
     // stdev(vec![0, 1, 2]);
     // threads2();
     // threads3();
-    let input = vec![1., 2.];
-    println!("input: {:?}", input);
-    let ans = stddev(input);
-    println!("stddev: {}", ans);
+    // let input = vec![1., 2.];
+    // println!("input: {:?}", input);
+    // let ans = stddev(input);
+    // println!("stddev: {}", ans);
+    test_welford();
+}
+
+fn test_welford() -> (){
+    let arr = vec![1., 2., 3.];
+    let mut welford = Welford::new();
+    for num in arr.iter(){
+        welford.add(*num);
+    }
+    println!("stddev is {}", welford.stddev())
 }
 
 fn stdev(arr: Vec<i32>) {

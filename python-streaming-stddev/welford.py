@@ -24,6 +24,6 @@ class Welford:
     def stddev(self) -> float:
         n = self.n
         if n == 1:
-            return 0.
+            return 0.0
         stddev = math.sqrt(self.S / n)
         return stddev
